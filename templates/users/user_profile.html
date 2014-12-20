@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block info %}
+    <hr class="info_hr">
+{% endblock info %}
+
+{% block nav-users %}
+    <a href="/users/" id="current">Users</a>
+{% endblock nav-users %}
+
+{% block posts %}
+    <div class="detail">    
+        <h2>User: {{ user_.username }}</h2>
+        {% if user_.avatar %}
+            <img class="user-avatar" src="/media/{{ user_.avatar }}" alt="">
+        {% else %}
+            <img class="user-avatar" src="{% static "style/img/icon_no_images.jpg" %}" alt=""> 
+        {% endif %}
+        <p>
+            First name:
+            {% if user_.first_name %}
+                {{ user_.first_name }}
+            {% else %}
+                Unknown     
+            {% endif %} 
+        </p>
+        <p>
+            Last name:
+            {% if user_.last_name %}
+                {{ user_.last_name }}
+            {% else %}
+                Unknown     
+            {% endif %} 
+        </p>
+        <p>
+            Email:
+            {% if user_.email and  user_.show_email_in_profile  %}
+                {{ user_.email }}
+            {% elif not user_.show_email_in_profile %}
+                Sorry, email is hidden :(
+            {% else %}
+                Unknown     
+            {% endif %} 
+        </p>
+        <p>
+            Is admin:
+            {{ user_.is_superuser_ }}
+        </p>
+        <p>
+            Last login:
+            {{ user_.last_login }}
+        </p>
+        <p><a href="materials/">Added materials</a></p>
+        <p><a href="favorites/">Favorite materials</a></p>
+        <p>
+            <h3>About {{ user_.user_name }}:</h3>
+            {% if user_.about %}
+                {{ user_.about }}
+            {% else %}
+                user_ didn't share anything :(     
+            {% endif %} 
+        </p>
+    </div>    
+{% endblock posts %}
+        
+{% block lines %}{% endblock lines %}
+{% block blog %}{% endblock blog %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load endless %}
+
+{% block nav-users %}
+    <a href="/users/" id="current">Users</a>
+{% endblock nav-users %}
+
+{% block info %}
+    <hr class="info_hr">
+{% endblock info %}
+
+{% block posts %}
+    {% paginate 5 users %}
+    {% for user in users %}
+        <div class="post">
+            {% if user.avatar %}
+                <img src="/media/{{ user.avatar }}" alt="">
+            {% else %}
+                <img src="{% static "style/img/icon_no_images.jpg" %}" alt="">        
+            {% endif %}
+            <div class="post-content">
+                <h2>{{ user }}</h2>
+                <p>
+                    {% if user.about %}
+                        {{ user.about|removetags:"script link img"|safe }}
+                    {% else %}
+                        <p>No user info :(</p>  
+                    {% endif %}
+                </p>
+                <a href="{{ user.get_absolute_url }}" class="more">more</a>
+            </div>
+        </div>
+    {% endfor %}  
+    {% show_pages %}
+{% endblock posts %}
+
+{% block sidebar %}
+    {{ block.super }}
+{% endblock sidebar %}
+
+{% block lines %}{% endblock lines %}
+{% block blog %}{% endblock blog %}

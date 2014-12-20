@@ -1,0 +1,239 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href={% static "style/style.css" %}>
+    <link rel="icon" type="image/ico" href="{% static "favicon.ico" %}" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="{% static "js/script.js" %}"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--> 
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="{% static "style/img/logo.png" %}">
+            <ul>
+                <li>
+                    {% block nav-home %} <a href="/">Home</a> {% endblock nav-home %}
+                </li>
+                <li>
+                    {% block nav-materials %} <a href="/materials/">Materials</a> {% endblock nav-materials %}
+                </li>
+                <li>
+                    {% block nav-users %} <a href="/users/">Users</a> {% endblock nav-users %}
+                </li>
+                <li>
+                    {% block nav-block %} <a href="/blog/">Blog</a> {% endblock nav-block %}
+                </li>
+                <li>
+                    {% block nav-about %} <a href="/about/">About</a> {% endblock nav-about %}
+                </li>
+            </ul>
+        </header>
+        <div class="slider">
+            <ul>
+                <li>
+                    <img src="{% static "style/img/slider_img/elearning.png" %}" height="300" width="400" alt="" style="margin-left: 100px; margin-top: 50px;">
+                    <div class="slider-info">
+                        <h1 class="slider-header">Add Materials</h1>
+                        <a href="/about/">Read More</a>
+                    </div>    
+                </li>
+                <li>
+                    <img src="{% static "style/img/slider_img/Distance-Learning.png" %}" height="348" width="380" alt="" style="margin-left: 100px; margin-top: 50px;">
+                    <div class="slider-info">
+                        <h1 class="slider-header">Get Materials</h1>
+                        <a href="/about/">Read More</a>
+                    </div>  
+                </li>
+                <li>
+                    <img src="{% static "style/img/slider_img/Educacion-Online.png" %}" height="261" width="300" alt="" style="margin-left: 100px; margin-top: 50px;">
+                    <div class="slider-info">
+                        <h1 class="slider-header">Collect Materials</h1>
+                        <a href="/about/">Read More</a>
+                    </div>  
+                </li>
+    </ul>
+        </div>
+        {% block info %}
+            <div class="info">
+            <div class="info-block">
+                <img src="{% static "style/img/add139.png" %}">
+                <div class="cont">
+                    <h3>Add materials</h3>
+                    <p>
+                        You can add your materials to access them online. You or your friends/classmates
+                        can get study material easily now :)
+                    </p>
+                    <a href="#">
+                        Read More
+                        <img src="{% static "style/img/arrow.png" %}" class="arrow"></a>
+                </div>
+            </div>
+            <div class="info-block">
+                <img src="{% static "style/img/down51.png" %}">
+                <div class="cont">
+                    <h3>Get materials</h3>
+                    <p>
+                        You can easily get materials, that your teachers want to send. They just can send you a link. You should just click and study
+                    </p>
+                    <div class="clear" style="clear: both;"></div>
+                    <a href="#">Read More<img src="{% static "style/img/arrow.png" %}" class="arrow"></a>                </div>
+            </div>
+            <div class="info-block">
+                <img src="{% static "style/img/three28.png" %}">
+                <div class="cont">
+                    <h3>Collect materials</h3>
+                    <p>
+                        If you liked a meterial, you can just add it to your favorites. Just click "Add to favorites" on the bottom of material. 
+                    </p>
+                    <a href="#">
+                        Read More
+                        <img src="{% static "style/img/arrow.png" %}" class="arrow"></a>
+                </div>
+            </div>
+        </div>
+
+        {% endblock info %}
+        
+        <div class="wrap">
+            <section class="posts">
+                {% block posts %}
+                    
+                {% endblock posts %}
+            </section>
+            <aside class="sidebar">
+                {% block sidebar %}
+                    {% ifnotequal user_ user %}
+                        {% if user.is_authenticated %}
+                            <h3>Welcome, {{ request.user }} </h3>
+                            <p class="user_info">
+                                {% if request.user.avatar %}
+                                    <img src="{{ MEDIA_URL }}{{ request.user.avatar }}" alt="" class="user_info_avatar"><br>
+                                {% else %}
+                                    <img src="{{ STATIC_URL }}style/img/icon_no_images.jpg" alt="" class="user_info_avatar"><br>    
+                                {% endif %}
+                                <a href="/users/user/{{ request.user }}">Go to the profile</a><br>
+                                <a href="/users/logout/">Log Out</a><br>
+                            </p>
+                        {% else %}    
+                            <h3>Log In</h3>
+                            <form action="/users/login/" method="POST">
+                                {% csrf_token %}
+                                <h4>Log in to App</h4>
+                                <div class="inputs1">
+                                    <input type="username" name="username" value="Username">
+                                    <input type="password" name="password" value="Password">
+                                </div>
+                                <div class="errors">
+                                    {% for message in messages %}
+                                        <p>{{ message }} </p>                     
+                                    {% endfor %}              
+                                </div>
+                                <div class="inputs2">
+                                    <input type="checkbox" name="remember_me" value="Car">
+                                    <label for="remember_me">Remember me on this computer</label>
+                                    <input type="submit" value="Login">
+                                </div>
+                                <p class="register">Not Registered? <a href="#">Sign Up Here</a> </p>
+                                <div class="clear" style="clear: both;"></div>
+                            </form>  
+                        {% endif %}
+                    {% endifnotequal %}
+                {% endblock sidebar %}
+            </aside>
+            <div class="clear" style="clear: both;"></div>
+            {% block lines %}
+                <div class="line1">
+                <h1>Free access</h1>
+                <p>
+                    All materials in this site are in free access. That means, that you can access all 
+                    of the materials added to this site for free.
+                </p>
+            </div>
+            <div class="line2">
+                <h1>Get the latest news</h1>
+                <p>
+                    If you want to know all news about this project, just visit the blog.
+                </p>
+            </div>
+
+            {% endblock lines %}
+            
+            {% block blog %}
+                <section class="blog-posts">
+                    <div class="blog-post">
+                        <div class="calendar">
+                            <div class="day">09</div>
+                            <div class="month">Jan</div>
+                        </div>
+                        <div class="blog-post-content">
+                            <h2><a href="#">Gravida Ultrice</a></h2>
+                            <a href="#" class="comments">14 Comments</a>
+                            <p class="blog-post-body">
+                                Suspendisse ac urna. Etiam pellentesque mauris ut lectus nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio
+                                <a href="#"><img src="style/img/arrow2.png" class="arrow"></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-post">
+                        <div class="calendar">
+                            <div class="day">09</div>
+                            <div class="month">Jan</div>
+                        </div>
+                        <div class="blog-post-content">
+                            <h2><a href="#">Gravida Ultrice</a></h2>
+                            <a href="#" class="comments">14 Comments</a>
+                            <p class="blog-post-body">
+                                Suspendisse ac urna. Etiam pellentesque mauris ut lectus nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio
+                                <a href="#"><img src="style/img/arrow2.png" class="arrow"></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-post">
+                        <div class="calendar">
+                            <div class="day">09</div>
+                            <div class="month">Jan</div>
+                        </div>
+                        <div class="blog-post-content">
+                            <h2><a href="#">Gravida Ultrice</a></h2>
+                            <a href="#" class="comments">14 Comments</a>
+                            <p class="blog-post-body">
+                                Suspendisse ac urna. Etiam pellentesque mauris ut lectus nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio
+                                <a href="#"><img src="style/img/arrow2.png" class="arrow"></a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            
+                <aside class="latest-comments">
+                    <div class="latest-comment">
+                        <div class="latest-comment-body">
+                            Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing
+                            <div class="latest-comment-author">- John Doe</div>
+                        </div>
+                        <img src="style/img/comments.png" alt="" class="latest-comment-icon">
+                    </div>
+                    <div class="latest-comment">
+                        <div class="latest-comment-body">
+                            Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing
+                            <div class="latest-comment-author">- John Doe</div>
+                        </div>
+                        <img src="style/img/comments.png" alt="" class="latest-comment-icon">
+                    </div>
+                </aside>
+                <div class="clear" style="clear: both;"></div>
+            </div>
+        {% endblock blog %}
+        <footer>
+            <p class="copyright">
+                © MShare.&nbsp; All rights Reserved. Powered by &nbsp; <a href="https://vk.com/rub_1998">RHarutyunov</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

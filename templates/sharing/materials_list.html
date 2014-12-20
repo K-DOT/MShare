@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load endless %}
+{% block nav-materials %}
+    <a href="/materials/" id="current">Materials</a>
+{% endblock nav-materials %}
+
+{% block info %}
+    <hr class="info_hr">
+{% endblock info %}
+
+{% block posts %}
+    {% paginate 5 materials %}
+    {% for material in materials %}
+        <div class="post">
+            {% if material.desc_image %}
+                <img src="/media/{{ material.desc_image }}" alt="">
+            {% else %}
+                <img src="{% static "style/img/icon_no_images.jpg" %}" alt="">        
+            {% endif %}
+            <div class="post-content">
+                <h2>{{ material }}</h2>
+                <p>
+                    {% if material.desc %}
+                        {{ material.desc|removetags:"script link img"|safe }}
+                    {% else %}
+                        {{ material.body|removetags:"script link img"|safe|truncatechars:500 }}    
+                    {% endif %}
+                </p>
+                <a href="{{ material.get_absolute_url }}" class="more">more</a>
+                {% ifequal material.author request.user %}
+                    <div class="post-edit" style="float: right;">
+                        <a href="#"><img src="{% static "style/img/edit.png" %}" alt="" style="height:25px; width:25px"></a>
+                    </div>
+                {% endifequal %} 
+            </div>
+        </div>
+    {% endfor %}  
+    {% show_pages %}
+{% endblock posts %}
+
+{% block sidebar %}
+    {{ block.super }}
+{% endblock sidebar %}
+
+{% block lines %}{% endblock lines %}
+{% block blog %}{% endblock blog %}

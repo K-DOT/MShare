@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block nav-home %}
+    <a href="/" id="current">Home</a>
+{% endblock nav-home %}
+
+{% block info %}
+    {{ block.super }}
+{% endblock info %}
+
+{% block posts %}
+    {% for material in latest_materials %}
+        <div class="post">
+            {% if material.desc_image %}
+                <img src="/media/{{ material.desc_image }}" alt="">
+            {% else %}
+                <img src="{% static "style/img/icon_no_images.jpg" %}" alt="">        
+            {% endif %}
+            <div class="post-content">
+                <h2>{{ material }}</h2>
+                <p>
+                    {% if material.desc %}
+                        {{ material.desc|removetags:"script link img"|safe }}
+                    {% else %}
+                        {{ material.body|removetags:"script link img"|safe|truncatechars:500 }}    
+                    {% endif %}
+                </p>
+                <a href="{{ material.get_absolute_url }}" class="more">more</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock posts %}
+
+{% block sidebar %}
+    {{ block.super }}
+{% endblock sidebar %}

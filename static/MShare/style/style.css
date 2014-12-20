@@ -1,0 +1,658 @@
+@import "http://webfonts.ru/import/sourcesans.css";
+@import url(reset.css);
+/*
+    Source Sans Pro, 200, 200 italic, 300, 300 italic, 400, 400 italic, 600, 600 italic, 700, 700 italic, 900, 900 italic
+*/
+body {
+    font: 15px "Source Sans Pro", Tahoma, "Times New Roman", Arial, sans-serif;
+    width: 1170px;
+    margin: 100px auto;
+    background-image: url(img/bg.jpg);
+}
+
+a:visited {
+    color: #666633;
+}
+
+.wrapper {
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+/* Header */
+
+header {
+    height: 100px;
+}
+
+header img {
+    margin: 25px 30px;
+}
+
+header > ul {
+    float: right;
+    margin: 40px 30px;
+}
+
+header > ul > li {
+    display: inline-block;
+    padding-left: 25px;
+    line-height: 10px;
+}
+
+header > ul > li:not(:last-child) {
+    border-right: 1px solid #E7E7E7;
+    padding: 0 25px;
+} 
+
+a#current {
+    color: #6DC5DD;
+}
+
+header > ul > li > a {
+    font-weight: 700;
+    text-decoration: none;
+    color: #787878;
+    letter-spacing: 1px;
+}
+
+header > ul > li > a:visited {
+    color: #787878;
+}
+
+header > ul > li > a:hover {
+    color: #6DC5DD;
+}
+
+/* End Header */ 
+
+
+/* Slider */
+
+ .slider {
+    z-index: 9;
+    width: 1170px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0;
+    position: relative; 
+ }
+ 
+ .slider img {
+	top: 10px;
+ }
+ 
+ .slider ul, .slider li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+ }
+ 
+ .slider ul {
+    width: 9999px; 
+ }
+ 
+ .slider ul li {
+    list-style-type: none;
+    float: left;
+    width: 1170px;
+ }
+ .slider .nav {
+    position: absolute;
+    bottom: 12px; 
+    margin-left: 1080px;
+ }
+ .slider .nav span {
+    background: #fff;
+    margin: 0 8px 0 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    display: block;
+    float: left;
+    border: 1px solid  #6DC5DD;
+ }
+ .slider .nav span.on {
+    background: #6DC5DD;
+ }
+ 
+ .slider ul li{
+	width: 1170px;  
+	background: #e7e7e7; /* Old browsers */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U3ZTdlNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI0JSIgc3RvcC1jb2xvcj0iI2Y0ZjRmNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #e7e7e7 0%, #f4f4f4 24%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e7e7e7), color-stop(24%,#f4f4f4), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #e7e7e7 0%,#f4f4f4 24%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #e7e7e7 0%,#f4f4f4 24%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #e7e7e7 0%,#f4f4f4 24%,#ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #e7e7e7 0%,#f4f4f4 24%,#ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+ }
+
+ .slider-info {
+    float: right; 
+    margin-right: 160px;
+    margin-top: 100px;
+ }
+
+ .slider-info h1 {
+    font-size: 60px; 
+    font-weight: 800;
+    color: #003D48;
+    margin-bottom: 20px;
+ }
+
+.slider-info a {
+    display: inline-block;
+    padding: 9px 16px;
+    background: #F77462;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+}   
+
+.slider-info > a:hover {
+    text-shadow: 0px 0px 1px;
+} 
+
+/* End Slider */
+
+/* Info Block */
+
+.info {
+    background: #6DC5DD;
+    height: 270px;
+}
+
+.info-block {
+    width: 360px;
+    float: left;
+    margin-top: 60px;
+    margin-left: 30px;
+} 
+
+.info-block > img {
+    float: left;
+}
+
+.info_hr {
+	display: block; 
+	height: 1px;
+    border: 0; 
+    border-top: 1px solid #ccc;
+    margin: 1em 0; 
+    padding: 0;
+}
+
+.cont {
+    float: right;
+    width: 270px;
+    color: #FFFFFF;
+}
+
+.cont > h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.cont > p {
+    margin: 20px 5px 20px 0px;
+}
+
+.cont > a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.arrow {
+    vertical-align: bottom;
+    margin-left: 10px;
+}
+
+/* End Info Block */
+
+/* Posts */
+
+.post {
+    overflow: auto;
+}
+
+.posts {
+    float: left;
+}
+
+.post {
+    margin-top: 60px;
+    width: 771px;
+}
+
+.post img {
+    float: left;
+    margin: 0 30px;
+    width: 190px;
+    height: 190px;
+}
+
+.post-content {
+    float: right;
+    width: 520px;
+    color: #8C9193;
+}
+
+.detail {
+    margin: 60px 0 0 30px;
+    width: 720px;
+    color: #8C9193;
+}
+
+.detail .user-avatar {
+    height: 200px;
+    width: 200px;
+    border: 1px dotted #003D48;
+}
+
+.detail img {
+    margin: 23px 0 8px 0; 
+    max-height: 600px;
+    max-width: 700px;
+}
+
+.detail a {
+    color: #F77462;
+    text-decoration: none;
+}
+
+.detail a:hover {
+    color: #F77462;
+    text-decoration: underline;
+}
+
+.post-info {
+    margin-bottom: 8px;
+}
+
+.post-content  p, .post-detail-content {
+    font-size: 15px;
+    margin: 23px 0 22px 0;    
+    line-height: 23px;
+}
+
+.post-content  h2, .detail  h2 {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #003D48;
+}
+
+.more, .more:visited {
+    display: inline-block;
+    padding: 9px 16px;
+    background: #F77462;
+    font: 15px "Source Sans Pro";
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+}
+
+.more:hover {
+    text-shadow: 0px 0px 1px;
+}
+
+
+
+/* End posts */
+
+/* Line 1 */
+
+.line1 {
+    background: #F77462;
+    height: 206px;
+    overflow: auto;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.line1 > h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 60px;
+}
+
+.line1 > p {
+    width: 660px;
+    font-size: 18px;
+    color: #fff;
+    margin: 0 auto; 
+    font-weight: 100;
+    line-height: 1.5em;
+}
+
+/*End Line 1*/
+
+/* Line 2 */
+
+.line2 > h1 {
+    color: #003D48;
+    font-size: 32px;
+    text-align: center;
+    margin: 60px 0 30px 0;
+    font-weight: 700;
+}
+
+.line2 > p {
+    color: #80CDE2;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 300;
+    border-top: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+    padding: 12px 0;
+    margin: 0 30px;
+}
+
+/* End Line 2 */
+
+/* SideBar */
+
+aside.sidebar {
+    margin: 60px 55px 55px 0;
+    padding-left: 60px;
+    float: right;
+    /*border-left: 1px dotted;*/
+}
+
+aside.sidebar > form {
+    border-radius: 2px;
+    width: 280px;
+    margin-top: 25px;
+    box-shadow: 0px 0 0 1px #D1D3D3, 0 0 0 6px #F1F1F1; 
+
+}
+
+aside.sidebar > form .errors {
+    text-align: left;
+    color: red;
+    margin: 0 0 10px 20px;
+    font-size: 12px;
+}
+
+.user_info a {
+    display: inline-block;
+    padding: 9px 16px;
+    background: #F77462;
+    font: 15px "Source Sans Pro";
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 10px;
+    float: right;
+}
+
+.user_posts {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #003D48;
+    margin: 60px 0 -30px 30px;
+}
+
+
+.user_info a:hover {
+    text-shadow: 0px 0px 1px;
+}
+
+aside.sidebar form > h4 {
+    font-size: 11px;
+    font-weight: bolder;
+    border-radius: 2px;
+    color: #555555;
+    display: block;
+    text-align: center;
+    padding: 7px 0 8px 0;
+    background:  url(img/formbg.png) 0 0;
+    box-shadow: 0px 0 0 1px #D1D3D3; 
+}
+
+aside.sidebar form  input {
+    margin-bottom: 10px;
+}
+
+
+aside.sidebar h3 {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #003D48;
+    
+}
+
+aside .user_info_avatar {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #003D48;
+    margin: 25px 0;
+}
+
+aside form {
+    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+}
+
+.inputs1 {
+    display: block;
+    margin: 15px auto 0 auto;
+    width: 250px;
+}
+
+.inputs2 input[type="submit"] {
+    font-size: 9px;
+    border: none;
+    background: url(img/form-but.png) no-repeat 0 0 transparent;
+    padding: 8px 14px;
+    font-weight: 900;
+    cursor: pointer;
+    color: #668996;
+    outline: none;
+    width: 60px;
+    float: right;
+    margin-right: 15px;
+}
+
+.inputs1 input {
+    border: none;
+    padding: 10px;
+    width: 230px;
+    outline: none;
+    background: url(img/form.png) no-repeat 0 0 transparent;
+    color: #C6C6C6;
+    font-size: 9px;
+
+}
+
+.inputs1 input:focus {
+    background: url(img/form_active.png) no-repeat 0 0 transparent;
+}
+
+.inputs2 {
+    margin-left: 15px;
+}
+
+.inputs2 input[type="checkbox"] {
+    position: relative;
+    vertical-align: middle;
+    bottom: -4px;
+}
+
+.inputs2 label {
+    font-size: 9px;
+    color: #6C6C6C;
+    font-weight: bold;
+}
+
+.register {
+    font-size: 10px;
+    color: #6C6C6C;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    text-align: right;
+
+}
+
+.register a {
+    color:#003D48;
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
+
+/* End SideBar */
+
+
+/* Last Block */
+
+.blog-posts {
+    float: left;
+    width: 540px;
+    margin-left: 30px;
+}
+
+.blog-posts, .latest-comments {
+    margin-top: 40px;
+}
+
+.blog-post {
+    margin-bottom: 55px;
+    overflow: hidden;
+}
+
+.blog-post-content {
+    float: right;
+    width: 440px;
+}
+
+.blog-post-content h2 a {
+    font-size: 16px;
+    font-weight: 700;
+    color: #003D48;
+    text-decoration: none;
+}
+
+.blog-post-body {
+    line-height: 25px;
+    color: #A5A5A5;
+    font-weight: 500;
+}
+
+.blog-post-content .comments {
+    font-size: 14px;
+    color: #F77462;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.blog-post-content a:hover {
+    text-shadow: 0.5px 0px 0px;
+}
+
+.blog-post-content .arrow {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.calendar {
+    float: left;
+    background: #6DC5DD;
+    width: 70px;
+    height: 70px;
+    clear: both;
+    border-radius: 4px;
+}
+
+.day {
+    padding: 0px 17px;
+    font-size: 35px;
+    color: #fff;
+    font-weight: 700;
+    border-bottom: 1px solid #fff;
+}
+
+.month {
+    margin: 0px 20px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.latest-comments {
+    float: right;    
+    margin-right: 30px;
+}
+
+.latest-comment {
+    background: #ECECEC;
+    padding: 0 30px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    color: #9FA3A5;
+    font-weight: 500;
+    max-height: 173px;
+}
+
+.latest-comment-body {
+    width: 333px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 35px 0;
+    line-height: 24px;
+}
+
+.latest-comment-icon {
+    display: inline-block;
+    margin: 32px 0 32px 40px;
+}
+
+.latest-comment-author {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #F28272;
+    font-weight: 700;
+}
+
+/* End Last Block */
+
+/* Footer */
+
+footer {
+    background: #6DC5DD;
+    margin-top: 55px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 40px 30px;
+    color: #fff;
+}
+
+footer a, footer a:visited {
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+/* End Footer */

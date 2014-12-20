@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add material</title>
+    <script type="text/javascript" src="{{ STATIC_URL }}tiny_mce/tiny_mce.js"></script>
+    <script>
+        tinyMCE.init({
+        mode: "textareas",
+        theme: "advanced",
+        plugins: "spellchecker,directionality,paste,searchreplace",
+        language: "en",
+        directionality: "{{ directionality }}",
+        spellchecker_languages : "{{ spellchecker_languages }}",
+        spellchecker_rpc_url : "{{ spellchecker_rpc_url }}"});
+        extended_valid_elements: ""
+    </script>
+</head>
+<body>
+    
+    <form method="post" action="/materials/add/">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit" value="Create material" />
+    </form>
+</body>
+</html>

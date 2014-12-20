@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block info %}
+    <hr class="info_hr">
+{% endblock info %}
+
+{% block nav-materials %}
+    <a href="/materials/" id="current">Materials</a>
+{% endblock nav-materials %}
+
+{% block posts %}
+    <div class="detail">    
+        <h2>{{ material.title|removetags:"script link"|safe }}</h2>
+        <div class="post-detail-content">
+            {{ material.body|removetags:"script link"|safe }}
+        </div>
+        <p class="post-info">
+            Author:
+            <a href="{{ material.author.get_absolute_url }} ">{{ material.author }}</a>
+        </p>
+        <p class="post-info">
+            Category:
+            <a href="{{ material.category.get_absolute_url }}">{{ material.category }}</a>
+        </p>
+        <p class="post-info">
+            Tags:
+            {% for tag_ in material.tags.all %}
+                <a href="{% url "tags" tag_.slug %}">{{ tag_.name }}</a>
+            {% endfor %} 
+        </p>
+        <p class="post-info">
+            Publication Date:
+            {{ material.pub_date }}
+        </p>
+        <a href="/materials/">Go to materials list</a>
+    </div>    
+{% endblock posts %}
+        
+{% block lines %}{% endblock lines %}
+{% block blog %}{% endblock blog %}
