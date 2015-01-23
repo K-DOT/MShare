@@ -107,9 +107,9 @@ TEMPLATE_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/home/ruben/projects/py3.4+dj1.7/venv/bin/MShare/static/'
 
-STATICFILES_DIRS = ('/home/ruben/Venv3/bin/MShare/static/MShare',)
+#STATICFILES_DIRS = ('/home/ruben/projects/py3.4+dj1.7/venv/bin/MShare/static/',)
 print(STATIC_ROOT)
 AUTH_USER_MODEL = 'users.User' 
 
